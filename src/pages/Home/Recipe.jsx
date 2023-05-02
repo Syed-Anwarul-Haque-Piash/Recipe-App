@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Card,  Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Recipe = ({ item }) => {
-  const { chefName, img,bio,like,number,experience} = item;
+  const { id,chefName, img,bio,like,number,experience} = item;
 
   return (
     <Container>
@@ -46,7 +47,10 @@ const Recipe = ({ item }) => {
               <Card.Text>
                 {number} item dishes
               </Card.Text>
+              <Link to={`/recipes/${id}`}>
               <Button variant="warning">View Recipe</Button>
+              </Link>
+              
             </Card.Body>
           </Card>
         </Col>

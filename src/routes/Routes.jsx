@@ -6,6 +6,7 @@ import SingleChef from "../pages/SingleChef/SingleChef";
 import Recipe from "../pages/Home/Recipe";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "recipes/:id",
-                element:<SingleChef></SingleChef>,
+                element: <PrivateRoutes><SingleChef></SingleChef></PrivateRoutes>,
                 loader: ({params})=>fetch(`http://localhost:5000/recipes/${params.id}`)
             },
             {

@@ -3,8 +3,7 @@ import { Button, Card, Container, Table } from "react-bootstrap";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import {  toast } from 'react-toastify';
 
 const SingleChef = () => {
   const chef = useLoaderData();
@@ -13,6 +12,12 @@ const SingleChef = () => {
   const { chefName, id, bio, like, number, img, recipe, experience } = chef;
   // const id=useParams();
   // console.log(id)
+//   const handleToast=()=>{
+//     toast.success("Add favourite button");
+//   }
+const handleFavourite = () =>{
+    toast("You Have Already Bookmarked This Blog");
+}
   return (
     <Container>
       <Card className="mt-5">
@@ -77,7 +82,7 @@ const SingleChef = () => {
               </tbody>
             </Table>
           ))}
-           <Button  variant="success">Favourite</Button>
+           <Button onClick={handleFavourite} variant="success">Favourite</Button>
         </Card.Body>
       </Card>
     </Container>

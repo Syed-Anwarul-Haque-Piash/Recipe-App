@@ -37,7 +37,7 @@ const NavigationBar = () => {
               </Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">{user.displayName}</Nav.Link>
+              <Nav.Link href="#deets">Piash</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
                 {user ?
                 <Button variant="secondary">Logout</Button>:

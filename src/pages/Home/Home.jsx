@@ -1,7 +1,20 @@
-import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Card, CardGroup, Col, Container, Row } from "react-bootstrap";
+import { useLoaderData } from "react-router-dom";
+import Recipe from "./Recipe";
 
 const Home = () => {
+    const recipe=useLoaderData()
+    console.log(recipe)
+    //const [recipe,setRecipe]=useState([]);
+    // useEffect(()=>{
+    //     fetch("http://localhost:5000/recipes")
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         setRecipe(data)
+    //         console.log(data)
+    //     })
+    // },[])
   return (
     <Container>
       <Row className="mt-5">
@@ -25,6 +38,11 @@ const Home = () => {
             alt=""
           />
         </Col>
+      </Row>
+      
+
+      <Row xs={1} md={2} lg={3} className="g-4 d-flex mt-5">
+      {recipe.map(item=><Recipe  item={item} key={item.id}></Recipe>)}
       </Row>
     </Container>
   );

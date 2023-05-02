@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
   return (
@@ -10,8 +11,10 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Home</Nav.Link>
-              <Nav.Link href="#pricing">BLog</Nav.Link>
+              {/* <Nav.Link href="#features">Home</Nav.Link> */}
+              <Link to="/" style={{textDecoration:"none",color:"black",marginLeft:"15px"}}>Home</Link>
+              {/* <Nav.Link href="#pricing">BLog</Nav.Link> */}
+              <Link to="/blog" style={{textDecoration:"none",color:"black",marginLeft:"15px"}}>Blog</Link>
               
             </Nav>
             <Nav>

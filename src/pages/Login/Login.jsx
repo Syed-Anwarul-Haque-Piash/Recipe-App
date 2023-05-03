@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Button, Container,Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 const Login = () => {
     const {signIn}=useContext(AuthContext);
@@ -9,6 +11,8 @@ const Login = () => {
     const location=useLocation();
     console.log("login page location",location);
     const from=location.state?.from?.pathname || '/'
+    const auth=getAuth(app);
+    const provider=new GoogleAuthProvider()
 
 
     const handleLogin=(e)=>{
@@ -25,6 +29,16 @@ const Login = () => {
         .catch(error=>{
             console.log(error);
         })
+    }
+    const handleGoogleSignIn=()=>{
+      signInWithPopup(auth,provider)
+      .then(result=>{
+        const user=result.user;
+        console.log(user);
+      })
+      .catch(error=>{
+        console.log(error.message);
+      })
     }
     return (
         <Container className="mx-auto w-25">
@@ -57,6 +71,9 @@ const Login = () => {
          
         </Form.Text>
     </Form>
+    <Button onClick={handleGoogleSignIn} className='mt-3' variant="primary" type="submit">
+        Login With Google
+      </Button>
     </Container>
     );
 };

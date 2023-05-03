@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardGroup, Col, Container, Row } from "react-bootstrap";
+
 import { useLoaderData } from "react-router-dom";
 import Recipe from "./Recipe";
+
 
 
 const Home = () => {
     const recipe=useLoaderData()
     console.log(recipe)
-    //const [recipe,setRecipe]=useState([]);
-    // useEffect(()=>{
-    //     fetch("http://localhost:5000/recipes")
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         setRecipe(data)
-    //         console.log(data)
-    //     })
-    // },[])
+   
   return (
     <Container>
       <Row className="mt-5">
@@ -41,7 +35,21 @@ const Home = () => {
         </Col>
       </Row>
 
-      <div className="sub-banner"></div>
+      <div style={{backgroundColor:"black"}}>
+        <Row className="p-5 mt-5">
+          <Col>
+          <img src="https://wp.wp-preview.com/cookandmeal/cookandmeal-selector/wp-content/uploads/2021/07/Yammy-1.png" alt="" />
+          <h1 className="text-white">CookAndMeal – Dish It Up.</h1>
+          <p className="text-white">You will receive all demos + free lifetime updates + plugins + <br /> dedicated support from Power Elite Themeforest Author</p>
+          </Col>
+          <Col className="ms-3 mt-5">
+          <h3 className="text-white">+ 6 Months Support Included</h3>
+          <h3 className="text-white">+ All Demos</h3>
+          <h3 className="text-white">+ All Plugins and Features</h3>
+          <Button variant="warning">Purchase</Button>
+          </Col>
+        </Row>
+      </div>
       
 
       <Row xs={1} md={2} lg={3} className="g-4 d-flex mt-5">

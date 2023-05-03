@@ -3,7 +3,8 @@ import { Button, Card, Container, Table } from "react-bootstrap";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import {  toast } from 'react-toastify';
+import { Toaster, toast } from "react-hot-toast";
+
 
 const SingleChef = () => {
   const chef = useLoaderData();
@@ -12,7 +13,7 @@ const SingleChef = () => {
   const { chefName, id, bio, like, number, img, recipe, experience } = chef;
   const [disable,setDisable] = useState(false);
 const handleFavourite = () =>{
-    //toast("You Have Already Bookmarked This Blog");
+    toast.success("Favourite button clicked");
     setDisable(true)
     
 }
@@ -82,6 +83,7 @@ const handleFavourite = () =>{
           ))}
           
            <Button onClick={handleFavourite } disabled={disable} variant="success">Favourite</Button>
+           <Toaster></Toaster>
         </Card.Body>
       </Card>
     </Container>

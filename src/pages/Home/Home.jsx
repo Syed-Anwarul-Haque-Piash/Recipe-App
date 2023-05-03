@@ -55,6 +55,13 @@ const Home = () => {
       <Row xs={1} md={2} lg={3} className="g-4 d-flex mt-5">
       {recipe.map(item=><Recipe  item={item} key={item.id}></Recipe>)}
       </Row>
+      <div className="mb-5 p-5" style={{backgroundColor:"#eb4a36"}}>
+        <h2 className="text-white text-center">Be the first to know about the latest deals, receive new trending recipes & more!</h2>
+        <div className="d-flex">
+        <input style={{backgroundColor:"#eb4a36",color:"white",border:"1px solid white",margin:"0 auto"}} className="text-white mx-auto" type="email" name="" id="" placeholder="Your email" />
+        <Button variant="warning">Subscribe</Button>
+        </div>
+      </div>
     </Container>
   );
 };

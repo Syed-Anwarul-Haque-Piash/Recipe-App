@@ -1,11 +1,13 @@
 import React from "react";
-import { Card, CardGroup, Container } from "react-bootstrap";
+import { Button, Card, CardGroup, Container } from "react-bootstrap";
+import ReactToPdf from 'react-to-pdf';
 
 const Blog = () => {
+  const ref = React.createRef();
   return (
     <Container className="mb-5">
       <h2 className="text-center">Website Blog Page</h2>
-      <CardGroup>
+      <CardGroup ref={ref}>
         <Card>
           <Card.Body>
             <Card.Title>
@@ -55,6 +57,11 @@ const Blog = () => {
           </Card.Body>
         </Card>
       </CardGroup>
+      <ReactToPdf targetRef={ref} filename="blog.pdf" x={10} y={10} scale={.5}>
+                {({ toPdf }) => (
+                    <Button className="mt-3" variant="success" onClick={toPdf}>Download Blog PDF</Button>
+                )}
+            </ReactToPdf>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 import { HiExclamation } from 'react-icons/hi';
+//import { BiErrorCircle, HiExclamation } from 'react-icons/bi';
 
 const ErrorPage = () => {
     const { error, status } = useRouteError();
@@ -15,9 +16,12 @@ const ErrorPage = () => {
         className="d-flex align-items-center"
       >
         <div className="container d-flex flex-column align-items-center justify-content-center px-5 mx-auto my-5">
-          <HiExclamation
+          {/* <HiExclamation
             style={{ height: "200px", width: "200px", color: "#f90606" }}
-          ></HiExclamation>
+          ></HiExclamation> */}
+          <img style={{ height: "300px", width: "400px", color: "#f90606" }} src="https://static.vecteezy.com/system/resources/previews/006/549/647/original/404-landing-page-free-vector.jpg" alt="" />
+          {/* <BiErrorCircle style={{ height: "200px", width: "200px", color: "#f90606" }}></BiErrorCircle> */}
+          
           <div className="max-w-md text-center">
             <h2
               style={{ color: "#f90606", fontWeight: "700", fontSize: "48px" }}
@@ -37,7 +41,7 @@ const ErrorPage = () => {
             <Link
               to="/"
               style={{ fontSize: "22px", fontWeight: "600" }}
-              className="btn btn-primary mt-4"
+              className="btn btn-danger mt-4"
             >
               Back To Homepage
             </Link>

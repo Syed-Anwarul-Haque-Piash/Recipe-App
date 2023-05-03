@@ -6,7 +6,7 @@ const Recipe = ({ item }) => {
   const { id,chefName, img,bio,like,number,experience} = item;
 
   return (
-    <Container>
+    <Container className="mb-5">
       {/* <Row className="d-flex">
         <Col>
           <Card>

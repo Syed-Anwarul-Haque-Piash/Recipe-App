@@ -3,6 +3,7 @@ import { Button, Card, CardGroup, Col, Container, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import Recipe from "./Recipe";
 
+
 const Home = () => {
     const recipe=useLoaderData()
     console.log(recipe)
@@ -39,6 +40,8 @@ const Home = () => {
           />
         </Col>
       </Row>
+
+      <div className="sub-banner"></div>
       
 
       <Row xs={1} md={2} lg={3} className="g-4 d-flex mt-5">

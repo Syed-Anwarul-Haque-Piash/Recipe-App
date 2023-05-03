@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Container, Table } from "react-bootstrap";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from "react-icons/fa";
@@ -10,16 +10,14 @@ const SingleChef = () => {
   //console.log(chef.recipe[0].ingredients);
   console.log(chef);
   const { chefName, id, bio, like, number, img, recipe, experience } = chef;
-  // const id=useParams();
-  // console.log(id)
-//   const handleToast=()=>{
-//     toast.success("Add favourite button");
-//   }
+  const [disable,setDisable] = useState(false);
 const handleFavourite = () =>{
-    toast("You Have Already Bookmarked This Blog");
+    //toast("You Have Already Bookmarked This Blog");
+    setDisable(true)
+    
 }
   return (
-    <Container>
+    <Container className="mb-5">
       <Card className="mt-5">
         <Card.Img
           variant="top"
@@ -82,7 +80,8 @@ const handleFavourite = () =>{
               </tbody>
             </Table>
           ))}
-           <Button onClick={handleFavourite} variant="success">Favourite</Button>
+          
+           <Button onClick={handleFavourite } disabled={disable} variant="success">Favourite</Button>
         </Card.Body>
       </Card>
     </Container>

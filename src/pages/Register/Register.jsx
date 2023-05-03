@@ -23,7 +23,7 @@ const Register = () => {
     }
   return (
     <div>
-      <Container className="mx-auto w-25">
+      <Container className="mx-auto w-25 mb-5">
         <h3 className="mt-3">Register your account</h3>
         <Form onSubmit={handleRegister} className="mt-3">
           <Form.Group className="mb-3" controlId="formBasicEmail">

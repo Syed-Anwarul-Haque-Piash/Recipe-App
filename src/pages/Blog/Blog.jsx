@@ -3,7 +3,7 @@ import { Card, CardGroup, Container } from "react-bootstrap";
 
 const Blog = () => {
   return (
-    <Container>
+    <Container className="mb-5">
       <h2 className="text-center">Website Blog Page</h2>
       <CardGroup>
         <Card>

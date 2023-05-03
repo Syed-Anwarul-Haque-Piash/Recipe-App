@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container,Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -7,6 +7,8 @@ import app from '../../firebase/firebase.config';
 
 const Login = () => {
     const {signIn}=useContext(AuthContext);
+    const [error,setError]=useState("")
+    const [success,setSuccess] = useState("")
     const navigate=useNavigate();
     const location=useLocation();
     console.log("login page location",location);
@@ -20,6 +22,10 @@ const Login = () => {
         const email=e.target.email.value;
         const password=e.target.password.value
         console.log(email,password);
+        setError("");
+        setSuccess("");
+        setSuccess("Login successful")
+        setError("Password not correct");
         signIn(email,password)
         .then(result=>{
             const loggedUser=result.user;
@@ -65,10 +71,11 @@ const Login = () => {
          Dont have an account? <Link to="/register">Register</Link>
         </Form.Text>
       <Form.Text className="text-success">
-         
+         {success}
         </Form.Text>
+        <br />
       <Form.Text className="text-danger">
-         
+         {error}
         </Form.Text>
     </Form>
     <Button onClick={handleGoogleSignIn} className='mt-3' variant="primary" type="submit">

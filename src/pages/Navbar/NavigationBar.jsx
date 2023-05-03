@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -19,28 +20,7 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              {/* <Nav.Link href="#features">Home</Nav.Link> */}
-              {/* <Link
-                to="/"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  marginLeft: "15px",
-                }}
-              >
-                Home
-              </Link> */}
-              {/* <Nav.Link href="#pricing">BLog</Nav.Link> */}
-              {/* <Link
-                to="/blog"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  marginLeft: "15px",
-                }}
-              >
-                Blog
-              </Link> */}
+              
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -63,22 +43,31 @@ const NavigationBar = () => {
               </NavLink>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets"></Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
+              {user && <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">{user.displayName ? user.displayName : 'No Username Found'}</Tooltip>}>
+                                <span className="d-inline-block">
+                                    {
+                                        user?.photoURL ? <img style={{ width: '50px', marginRight:"15px", borderRadius: '50%' }} src={user.photoURL} alt="" /> : <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
+                                    }
+                                </span>
+                            </OverlayTrigger>}
+              
                 {user ? (
                   <Button onClick={handleLogOut} variant="secondary">
                     Logout
                   </Button>
+                  
                 ) : (
                   <Link to="/login">
                     <Button variant="secondary">Login</Button>
                   </Link>
                 )}
-              </Nav.Link>
+               {/* {user && <img style={{width:"40px",height:"40px",borderRadius:"50%"}} src={user?.photoURL} alt="" />} */}
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+     
     </div>
   );
 };

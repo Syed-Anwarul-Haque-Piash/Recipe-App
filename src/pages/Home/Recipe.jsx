@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card,  Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const Recipe = ({ item }) => {
   const { id,chefName, img,bio,like,number,experience} = item;
@@ -32,7 +33,9 @@ const Recipe = ({ item }) => {
       {/* <Row xs={1} md={2} lg={3} className="g-4 d-flex"> */}
       <Col className="mt-4 ">
           <Card>
-            <Card.Img variant="top" style={{height:"200px",width:"100%"}} src={img} />
+           <LazyLoad>
+           <Card.Img variant="top" style={{height:"200px",width:"100%"}} src={img} />
+           </LazyLoad>
             <Card.Body className="text-secondary">
               <Card.Title className="text-dark">{chefName}</Card.Title>
               <Card.Text>
